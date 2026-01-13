@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tempo Code</title>
+
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0b0f2a">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="root"></div>
+
+  <script src="script.js"></script>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js");
+    }
+  </script>
+
+</body>
+</html>
