@@ -1,21 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tempo Code</title>
 
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#0b0f2a">
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0b0f19" />
 
-  <link rel="stylesheet" href="style.css">
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <div id="root"></div>
+  <div class="app">
 
+    <!-- HEADER -->
+    <header>
+      <h1>Tempo <span>Code</span></h1>
+      <div class="toolbar">
+        <button onclick="downloadProject()">Download</button>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <div class="main">
+
+      <!-- TABS -->
+      <div class="tabs">
+        <button class="active" data-tab="html" onclick="switchTab('html')">HTML</button>
+        <button data-tab="css" onclick="switchTab('css')">CSS</button>
+        <button data-tab="js" onclick="switchTab('js')">JS</button>
+        <button data-tab="py" onclick="switchTab('py')">Python</button>
+      </div>
+
+      <!-- EDITORS -->
+      <div id="htmlEditor" class="editor active">
+        <textarea id="htmlCode" placeholder="Write HTML here..."></textarea>
+      </div>
+
+      <div id="cssEditor" class="editor">
+        <textarea id="cssCode" placeholder="Write CSS here..."></textarea>
+      </div>
+
+      <div id="jsEditor" class="editor">
+        <textarea id="jsCode" placeholder="Write JavaScript here..."></textarea>
+      </div>
+
+      <div id="pyEditor" class="editor">
+        <textarea id="pyCode" placeholder="Python preview not supported (offline only)"></textarea>
+      </div>
+
+      <!-- PREVIEW -->
+      <div class="preview-box">
+        <iframe id="previewFrame"></iframe>
+      </div>
+
+      <!-- HISTORY -->
+      <div class="history">
+        <div id="historyList"></div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      Tempo Code • Offline-ready • PWA
+    </footer>
+
+  </div>
+
+  <!-- Script -->
   <script src="script.js"></script>
 
+  <!-- Service Worker -->
   <script>
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("service-worker.js");
@@ -23,4 +82,4 @@
   </script>
 
 </body>
-</html>
+    </html>
